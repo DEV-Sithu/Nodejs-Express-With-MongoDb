@@ -22,11 +22,27 @@ app.use(rateLimit({
 }));
 
 
+const versionMiddleware = require('./middlewares/versioning');
+
+// Versioned routes using middleware
+app.use(versionMiddleware('v1')); // Default to v1
+
+// User 
+const v1UserRoutes = require('./routes/v1/userRoutes');
+app.use('/v1', v1UserRoutes);
+//Room
+const v1RoomRoutes = require('./routes/v1/roomRoutes');
+app.use('/v1', v1RoomRoutes);
 
 
 
-
-
+app.get('/checkVersion', (req, res) => {
+  if (req.version === 'v1') {
+    res.send('Response from v1');
+  } else if (req.version === 'v2') {
+    res.send('Response from v2');
+  }
+});
 
 
 app.get('/', (req, res) => {
