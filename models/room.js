@@ -19,7 +19,8 @@ const roomSchema = mongoose.Schema({
              },
     roomStatus: {
                 type: String,
-                required: false
+                required: false,
+                default: "available"
                }
 });
 
