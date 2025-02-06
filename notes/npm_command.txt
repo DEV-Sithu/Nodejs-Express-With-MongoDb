@@ -1,0 +1,7 @@
+npm init -y
+
+npm i packagename (Install package) aliases: add, i, in, ins, inst, insta, instal, isnt, isnta, isntal, isntall
+npm rm packagename ( Uninstall Package) aliases: unlink, remove, rm, r, un
+npm i packagename --save (dependencies)
+npm i packagename --save dev (dev dependenices)
+

@@ -1,0 +1,7 @@
+Code	အဓိပ္ပာယ်
+200	OK (အောင်မြင်ပါသည်)
+201	Created (အသစ်ဖန်တီးပြီး)
+400	Bad Request (တောင်းဆိုမှုမှားယွင်း)
+401	Unauthorized (ခွင့်ပြုချက်မရှိ)
+404	Not Found (ရှာမတွေ့)
+500	Server Error (Server အမှား)
