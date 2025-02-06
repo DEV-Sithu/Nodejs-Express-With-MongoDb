@@ -29,10 +29,10 @@ app.use(versionMiddleware('v1')); // Default to v1
 
 // User 
 const v1UserRoutes = require('./routes/v1/userRoutes');
-app.use('/v1', v1UserRoutes);
+app.use('/api/v1', v1UserRoutes);
 //Room
 const v1RoomRoutes = require('./routes/v1/roomRoutes');
-app.use('/v1', v1RoomRoutes);
+app.use('/api/v1', v1RoomRoutes);
 
 
 

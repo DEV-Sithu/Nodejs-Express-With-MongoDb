@@ -20,8 +20,7 @@ const roomSchema = mongoose.Schema({
     roomStatus: {
                 type: String,
                 required: false
-               },
-    createdAt: { type: Date, default: Date.now }
+               }
 });
 
 module.exports = mongoose.model("Room", roomSchema);
