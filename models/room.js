@@ -11,17 +11,38 @@ const roomSchema = mongoose.Schema({
              },
     roomPrice: {
                 type: Number,
-                required: false
+                min: [6, 'Must be at least 6, got {VALUE}'],
+                max: [15, 'Must be at most 15, got {VALUE}'],
+                required: true
                },
     roomType: {
                 type: String,
-                required: false
+                required: true,
+                enum: {
+                    values: ['Family', 'Double','Single'],
+                    message: '{VALUE} is not supported'
+                  }
              },
     roomStatus: {
                 type: String,
+                required: true,
+                default: "available",
+                trim: true
+               },
+     checkInDate: {
+                type: Date,
                 required: false,
-                default: "available"
-               }
-});
+               },
+        roomDescription: {
+                    type: String,
+                    required: false
+                },
+       roomFacilities: {
+                    type: [String],
+                    required: false
+                },
+                     
+      },          
+);
 
 module.exports = mongoose.model("Room", roomSchema);
