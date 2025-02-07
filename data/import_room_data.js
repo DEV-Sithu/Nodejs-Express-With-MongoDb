@@ -1,12 +1,12 @@
 
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
-require('./config/database');
+require('../config/database');
 
 const fs = require('fs');
-const Room = require("../../models/room.js");
+const Room = require("./../models/room.js");
 
 // Read data from JSON file
-const rooms = JSON.parse(fs.readFileSync('./data/room_data.json','utf-8'));
+const rooms = JSON.parse(fs.readFileSync('./data/guesthouse.rooms.json','utf-8'));
 
 // Delete existing rooms from collection
 const deleteRoom = async (req, res) => {
@@ -30,4 +30,6 @@ const deleteRoom = async (req, res) => {
     process.exit();
   }
 
-module.exports = { deleteRoom, importRooms } ;
+  deleteRoom();
+  importRooms();
+  

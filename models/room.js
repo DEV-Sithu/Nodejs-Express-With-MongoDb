@@ -11,8 +11,8 @@ const roomSchema = mongoose.Schema({
              },
     roomPrice: {
                 type: Number,
-                min: [6, 'Must be at least 6, got {VALUE}'],
-                max: [15, 'Must be at most 15, got {VALUE}'],
+                // min: [6, 'Must be at least 6, got {VALUE}'],
+                // max: [15, 'Must be at most 15, got {VALUE}'],
                 required: true
                },
     roomType: {

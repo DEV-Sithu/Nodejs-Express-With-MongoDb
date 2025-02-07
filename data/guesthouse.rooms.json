@@ -1,0 +1,63 @@
+[{
+  "roomName": "A-106",
+  "roomPrice": 15000,
+  "roomType": "Double",
+  "roomStatus": "free",
+  "__v": 0
+},
+{
+  "roomName": "A-101",
+  "roomPrice": 15000,
+  "roomType": "Double",
+  "roomStatus": "free",
+  "__v": 0
+},
+{
+  "roomName": "A-102",
+  "roomPrice": 15000,
+  "roomType": "Double",
+  "roomStatus": "free",
+  "__v": 0
+},
+{
+  "roomName": "A-103",
+  "roomPrice": 15000,
+  "roomType": "Double",
+  "roomStatus": "free",
+  "__v": 0
+},
+{
+  "roomName": "A-104",
+  "roomPrice": 15000,
+  "roomType": "Double",
+  "roomStatus": "free",
+  "__v": 0
+},
+{
+  "roomName": "A-105",
+  "roomPrice": 15000,
+  "roomType": "Double",
+  "roomStatus": "free",
+  "__v": 0
+},
+{
+  "roomName": "A-107",
+  "roomPrice": 15000,
+  "roomType": "Family",
+  "roomStatus": "available",
+  "__v": 0
+},
+{
+  "roomName": "A-108",
+  "roomPrice": 15000,
+  "roomType": "Family",
+  "roomStatus": "available",
+  "__v": 0
+},
+{
+  "roomName": "A-109",
+  "roomPrice": 15000,
+  "roomType": "Family",
+  "roomStatus": "available",
+  "__v": 0
+}]
