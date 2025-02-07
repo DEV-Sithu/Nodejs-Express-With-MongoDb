@@ -20,6 +20,7 @@ app.use(rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100 // limit each IP to 100 requests per windowMs
 }));
+app.use(require('./middlewares/errorHandler.js'));
 
 
 const versionMiddleware = require('./middlewares/versioning');
@@ -48,6 +49,12 @@ app.get('/checkVersion', (req, res) => {
 app.get('/', (req, res) => {
     res.send('Node JS Express With Mongoose DB');
     });
+
+    // default 
+app.all('*', (req, res, next) => {
+    res.status(404).send({ message: 'Can not find' + req.url + ' on the server.' });
+    next();
+  } );
 
 
 app.listen(process.env.APP_PORT , () => {
