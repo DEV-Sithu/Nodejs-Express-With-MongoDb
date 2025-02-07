@@ -1,3 +1,4 @@
+const { query } = require("express");
 const Room = require("../../models/room.js");
 
 module.exports.createRoom = async (req, res) => {
@@ -198,3 +199,86 @@ module.exports.getRoomByPages = async (req, res) => {
     });
   }
 }
+
+module.exports.getRoomBySort = async (req, res) => {
+  try {
+    const sortBy = req.query.sortBy;
+    const order = req.query.order;
+    const room = await Room.find().sort({ [sortBy]: order });
+    if (!room) {
+      return res.status(404).send();
+    }
+    res.status(200).send({
+      status: "success",
+      data: room,
+    });
+  } catch (error) {
+    res.status(500).send({
+      status: "fail",
+      data: { error: error.message },
+    });
+  }
+};
+
+module.exports.getRoomByQuery = async (req, res) => {
+  try {
+    const room = await Room.find(req.query);
+    if (!room) {
+      return res.status(404).send();
+    }
+    res.status(200).send({
+      status: "success",
+      data: room,
+    });
+  } catch (error) {
+    res.status(500).send({
+      status: "fail",
+      data: { error: error.message },
+    });
+  }
+};
+
+module.exports.getRoomPagination = async (req, res) => {
+  try {
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit *1 || 10;
+    const skip = (page - 1) * limit;
+    query = query.skip(skip).limit(limit);
+    const room = await Room.find(req.query);
+    if (!room) {
+      return res.status(404).send();
+    }
+    res.status(200).send({
+      status: "success",
+      data: room,
+    });
+  } catch (error) {
+    res.status(500).send({
+      status: "fail",
+      data: { error: error.message },
+    });
+  }
+};
+
+module.exports.getRoomsByFilterSortPaging = async (req, res) => {
+  try {
+    const features = new ApiFeatures(Room.find(), req.query)
+      .filter()
+      .sort()
+      .pagination()
+      .fieldSelection();
+    const room = await features.query;
+    if (!room) {
+      return res.status(404).send();
+    }
+    res.status(200).send({
+      status: "success",
+      data: room,
+    });
+  } catch (error) {
+    res.status(500).send({
+      status: "fail",
+      data: { error: error.message },
+    });
+  }
+};
